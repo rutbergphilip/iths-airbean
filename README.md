@@ -3,6 +3,14 @@
 ## Beskrivning
 Ni ska bygga en mobilanpassad liten webbshop för drönarlevererat kaffe (drönare ingår ej).
 
+## Instruktioner
+
+1. Forka det här repot
+2. Lägg till gruppmedlemmar som collaborators
+3. Sätt upp en trello och bjud in alla, inkl läraren
+4. Sätt upp grunden för git flow
+5. Start dem' developin
+
 ## Specifikation
 
 * Splash screen
