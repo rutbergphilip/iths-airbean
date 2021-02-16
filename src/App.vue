@@ -9,6 +9,13 @@
 </template>
 
 <style lang="scss">
+
+*{
+  max-width: 375px;
+  max-height: 812px;
+  background-color: #292929;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
