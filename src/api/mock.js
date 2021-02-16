@@ -12,6 +12,6 @@ export async function makeOrder(userId, cardItems){
   // Persist order coupled userId in an array in localStorage
 }
 
-export async function fetchOrderHistory(email){
+export async function fetchOrderHistory(userId){
   // Resolve an array of orders after a random timer
 }
