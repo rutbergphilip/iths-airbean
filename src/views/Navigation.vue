@@ -4,17 +4,32 @@
           <img class="close" src="@/assets/close.svg">
       </div>
       <ul>
-          <li>Meny</li>
-          <li>Vårt kaffe</li>
-          <li>Min profil</li>
-          <li>Orderstatus</li>
+          <li @click="goToMeny">Meny</li>
+          <li @click="goToAbout">Vårt kaffe</li>
+          <li @click="goToProfil">Min profil</li>
+          <li @click="goToOrder">Orderstatus</li>
       </ul>
   </div>
 </template>
 
 <script>
 export default {
-name: 'Navigation'
+name: 'Navigation',
+methods: {
+    goToMeny(){
+        this.$router.push('/meny')
+    },
+    goToAbout(){
+        this.$router.push('/about')
+    },
+    goToProfil(){
+        this.$router.push('/profil')
+    },
+    goToOrder(){
+        this.$router.push('/orderstatus')
+    }
+
+},
 }
 </script>
 
