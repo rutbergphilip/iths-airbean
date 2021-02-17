@@ -1,39 +1,60 @@
 <template>
   <div class="home">
-    <img class="left" src="@/assets/intro-graphic-left.svg">
+    <div class="home-container">
+      <img src="@/assets/intro-graphic-left.svg">
+      <img class="right" src="@/assets/intro-graphic-right.svg">
+    </div>
+  <div>
+    <img class="logo" @click="goToNavigation" src="@/assets/airbean-landing.svg">
 
-    <img class="logo" src="@/assets/airbean-landing.svg">
-    
-    <img class="right" src="@/assets/intro-graphic-right.svg">
+  </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Home',
+
+  methods:{
+    goToNavigation(){
+      this.$router.push('/navigation')
+    }
+  }
 }
 </script>
 
 <style>
-  .home {
+@media only screen and (max-width: 375px) {
+  .home-container {
+    max-width:375px;
+    max-height: 667px;
     background-color: #0E927D;
     display: grid;
-    grid-template-columns: repeat(3, 125px);
-    grid-template-rows: repeat(3, 270px);
+    grid-template-columns: repeat(2,auto);
   }
 
   .right {
-    grid-column: 3;
+    grid-column: 2/2 ;
+    padding-left: 65px;
+   
   }
 
   .logo {
-    /* position: absolute; */
-    grid-column: 2;
-    grid-row: 2;
-    /* margin: auto; */
-  }
+    position: absolute;
+    top:35%;
+    right: 11%;
 
-  .left {
-    grid-column: 1;
   }
+  
+  a {
+    cursor: pointer;
+  } 
+  
+}
+ 
+
+
+  
+
+  
 </style>
