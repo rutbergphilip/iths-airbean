@@ -3,6 +3,12 @@ export async function fetchProducts(){
 }
 
 export async function registerUser(name, email){
+
+  const userInfo = {};
+  userInfo.id = Date.now();
+  userInfo.name = name;
+  userInfo.email = email;
+
   // Resolve a random generated ID after a random timer
   // Persist user in localStorage
 }
