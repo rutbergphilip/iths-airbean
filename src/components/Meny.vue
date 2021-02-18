@@ -1,15 +1,32 @@
 <template>
   <div class="meny">
-      <h1>Meny</h1>
+    <Header/>
   </div>
 </template>
 
+
+
 <script>
+
+import Header from './header'
+
 export default {
-name: 'meny'
+  components: {
+    Header: Header
+  }
 }
 </script>
 
-<style>
+<style scoped>
+
+.meny {
+  display:flex;
+  align-items:flex-start;
+
+}
+
+.footer {
+  align-self:center;
+}
 
 </style>

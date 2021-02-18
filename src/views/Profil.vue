@@ -1,8 +1,6 @@
 <template>
   <div class="profil">
-      <div class="header">
-        <img src="../assets/graphics-header.svg">
-      </div>
+      <Header/>
       <div class="form-container">
         <h1>Välkomen till AirBean-familjen!</h1>
         <p class="instructions">Genom att skapa ett konto nedan kan<br> du spara och se din orderhistorik.</p>
@@ -11,31 +9,50 @@
         <p class="input-label">E-post</p>
         <input v-model="userInfo.email" type="text" class="input-text">
         <div class="gdpr-container">
-          <input type="checkbox" name="gdpr">
+          <input type="checkbox" name="gdpr" v-on:click="validation = !validation">
           <label for="gdpr">GDPR Ok!</label>
         </div>
-        <button v-on:click="sendData(userInfo)">Brew me a cup!</button>
+        <button v-on:click="send(userInfo)">Brew me a cup!</button>
       </div>
   </div>
 </template>
 
 <script>
+
+import Header from '../components/header'
+
 export default {
   data() { return {
     
     userInfo: {
       name: "",
-      email: ""
+      email: "",
+      validation: false
     }
 
   }},
 
+
+  components: {
+    Header: Header
+  },
+
   methods: {
 
   
-    sendData(payload) {
+    send(payload) {
 
-      this.$store.commit('sendData', payload);
+      if(this.validation) {
+        this.$store.dispatch('sendData', payload);
+        this.userInfo.name = "";
+        this.userInfo.email = "";
+      }
+      else {
+        alert('Accept the GDPR terms!');
+      }
+
+      
+
     }
   }
 }
