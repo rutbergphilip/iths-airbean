@@ -8,16 +8,28 @@ export default new Vuex.Store({
   state: {
     data: {
      
-    }
+    },
+
+    coffeTypes: []
   },
   mutations: {
 
     storeData(state, payload) {
       state.data = payload
   
+    },
+
+    storeCoffeData(state, payload) {
+      state.coffeTypes = payload;
+      console.log(state.coffeTypes)
     }
   },
   actions: {
+
+     async getCoffeTypes(context) {
+       const coffeList = await API.fetchProducts();
+       context.commit('storeCoffeData', coffeList)
+     },
 
      async sendData(context, payload) {
 

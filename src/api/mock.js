@@ -1,4 +1,14 @@
+
+import * as Data from './menu.json'
+
 export async function fetchProducts(){
+
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(Data.menu)
+    }, 1000)
+  })
+
   // Resolve the products from menu.json after a random timer
 }
 
