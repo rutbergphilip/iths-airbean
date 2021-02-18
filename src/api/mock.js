@@ -25,8 +25,6 @@ export async function registerUser(name, email){
     }, 1000)
 
   })
-  // Resolve a random generated ID after a random timer
-  // Persist user in localStorage
 }
 
 // export async function makeOrder(userId, cardItems){

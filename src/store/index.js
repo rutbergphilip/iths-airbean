@@ -10,8 +10,11 @@ export default new Vuex.Store({
      
     },
 
-    coffeTypes: []
+    coffeTypes: [],
+    cart: []
   },
+
+
   mutations: {
 
     storeData(state, payload) {
@@ -22,9 +25,21 @@ export default new Vuex.Store({
     storeCoffeData(state, payload) {
       state.coffeTypes = payload;
       console.log(state.coffeTypes)
+    },
+
+    storeInCart(state, payload) {
+      const data = state.coffeTypes.find(coffe => coffe.id == payload);
+      state.cart.push(data);
     }
+
+
   },
   actions: {
+
+
+    makeOrder(context, id) {
+      context.commit('storeInCart', id)
+    },
 
      async getCoffeTypes(context) {
        const coffeList = await API.fetchProducts();

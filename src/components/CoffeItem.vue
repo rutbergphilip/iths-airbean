@@ -2,7 +2,7 @@
     <div class="container">
         <div v-for="coffe in getData" v-bind:key="coffe.id" class="items">
             <div class="first-line">
-                <span>+</span>
+                <span v-on:click="addToCart(coffe.id)">+</span>
                 <p class="title">{{coffe.title}}</p>
                 <p class="price"> {{coffe.price}} kr</p>
             </div>
@@ -22,6 +22,14 @@ export default {
         getData() {
             return this.$store.state.coffeTypes;
         }
+    },
+
+    methods: {
+
+        addToCart(id) {
+            this.$store.dispatch('makeOrder', id);
+        }
+
     },
 
     beforeCreate() {
