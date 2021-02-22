@@ -37,8 +37,13 @@ export default new Vuex.Store({
   actions: {
 
 
-    makeOrder(context, id) {
-      context.commit('storeInCart', id)
+    async sendOrder(context, id) {
+      context.commit('storeInCart', id);
+
+      const userData  = JSON.parse(localStorage.getItem('userInfo'))
+      const userId = userData.id;
+      await API.makeOrder(userId, context.cart);
+
     },
 
      async getCoffeTypes(context) {

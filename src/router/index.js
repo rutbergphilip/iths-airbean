@@ -6,6 +6,7 @@ import Navigation from '../views/Navigation.vue'
 import Meny from '../components/Meny.vue'
 import Profil from '../views/Profil.vue'
 import Orderstatus from '../views/Orderstatus.vue'
+import Cart from '../components/cart.vue'
 
 
 Vue.use(VueRouter)
@@ -27,9 +28,16 @@ const routes = [
     component: Navigation
   },
   {
-    path: '/meny',
+    path: '/meny/',
     name: 'Meny',
-    component: Meny
+    component: Meny,
+    children: [
+      {
+        path: 'cart',
+        name: 'Cart',
+        component: Cart
+      }
+    ]
   },
   {
     path: '/profil',
